@@ -85,7 +85,7 @@ RdKafka::Topic *RdKafka::Topic::create (Handle *base,
 
   RdKafka::TopicImpl *topic = new RdKafka::TopicImpl();
 
-  if (!confimpl) {
+  if (!confimpl || !confimpl->rkt_conf_) {
     /* Reuse default topic config, but we need our own copy to
      * set the topic opaque. */
     rkt_conf = rd_kafka_default_topic_conf_dup(rk);
